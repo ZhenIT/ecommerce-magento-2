@@ -279,18 +279,18 @@ class Data extends AbstractHelper
             $this->getMerchantBaseResponseUrl() . '/realexpayments_hpp/cards/result';
 
         $hppBillingFields = [
-            'HPP_BILLING_STREET1' => $customerBillingAddress->getStreetLine(1),
-            'HPP_BILLING_STREET2' => $customerBillingAddress->getStreetLine(2),
-            'HPP_BILLING_STREET3' => $customerBillingAddress->getStreetLine(3),
-            'HPP_BILLING_CITY' => $customerBillingAddress->getCity(),
+            'HPP_BILLING_STREET1' => substr($customerBillingAddress->getStreetLine(1), 0, 50),
+            'HPP_BILLING_STREET2' => substr($customerBillingAddress->getStreetLine(2), 0, 50),
+            'HPP_BILLING_STREET3' => substr($customerBillingAddress->getStreetLine(3), 0, 50),
+            'HPP_BILLING_CITY' => substr($customerBillingAddress->getCity(), 0, 40),
             'HPP_BILLING_POSTALCODE' => $customerBillingAddress->getPostcode(),
             'HPP_BILLING_COUNTRY' => $this->getCountryNumericCode($customerBillingAddress->getCountryId())
         ];
         $hppShippingFields = [
-            'HPP_SHIPPING_STREET1' => $customerShippingAddress->getStreetLine(1),
-            'HPP_SHIPPING_STREET2' => $customerShippingAddress->getStreetLine(2),
-            'HPP_SHIPPING_STREET3' => $customerShippingAddress->getStreetLine(3),
-            'HPP_SHIPPING_CITY' => $customerShippingAddress->getCity(),
+            'HPP_SHIPPING_STREET1' => substr($customerShippingAddress->getStreetLine(1), 0, 50),
+            'HPP_SHIPPING_STREET2' => substr($customerShippingAddress->getStreetLine(2), 0, 50),
+            'HPP_SHIPPING_STREET3' => substr($customerShippingAddress->getStreetLine(3), 0, 50),
+            'HPP_SHIPPING_CITY' => substr($customerShippingAddress->getCity(), 0, 40),
             'HPP_SHIPPING_POSTALCODE' => $customerShippingAddress->getPostcode(),
             'HPP_SHIPPING_COUNTRY' => $this->getCountryNumericCode($customerShippingAddress->getCountryId())
         ];
